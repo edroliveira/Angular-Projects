@@ -1,0 +1,151 @@
+<div>
+  <mat-toolbar>
+    <mat-toolbar-row class="row-1">
+      <button mat-icon-button (click)="sidenav.toggle()" class="mat-btn-menu">
+        <i class="far fa-paper-plane" matTooltip="Mensagens"></i>
+      </button>
+      <p class="parag-1"> App Imagens </p>
+      <span class="example-spacer"></span>
+
+      <button mat-icon-button class="mat-btn-menu-2" matTooltip="Novo"><i class="fas fa-plus"></i></button>
+
+      <button mat-icon-button class="mat-btn-menu-2" matTooltip="Configurações" [matMenuTriggerFor]="beforeMenu"><i id="cog-tool" class="fas fa-cog"></i></button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before" class="cog-menu">
+        <button mat-menu-item><i class="fas fa-user-plus"></i> Novo Usuário </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item><i class="fas fa-user-cog"></i> Configurações do Usuário </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item><i class="fas fa-door-open"></i> Sair </button>
+      </mat-menu>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<div>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav position="start" #sidenav mode="push" [(opened)]="opened" class="sidenav-1">
+
+
+    <!-- <div class="container">
+      <div class="row">
+        <div class="search-hero">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">
+        </div>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Hero Name</th>
+            <th>Country</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let hero of heroes | filter:searchText">
+            <td>{{hero.id}}</td>
+            <td>{{hero.name}}</td>
+            <td>{{hero.country}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+    
+
+
+    <mat-toolbar>
+      <mat-toolbar-row class="row-2">
+        <mat-form-field class="example-form-field">
+          <i class="fas fa-search"></i>
+          <input matInput type="text" [(ngModel)]="value">
+          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <i class="fas fa-times"></i>
+          </button>
+        </mat-form-field>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-list>
+      
+      <mat-list-item>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title> Perfil 01 </mat-card-title>
+        </mat-card-header>
+      </mat-list-item>
+
+      <mat-divider class="divider-side"></mat-divider>
+
+      <mat-list-item>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title> Perfil 02 </mat-card-title>
+        </mat-card-header>
+      </mat-list-item>
+
+      <mat-divider class="divider-side"></mat-divider>
+      
+      <mat-list-item>
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title> Perfil 03 </mat-card-title>
+        </mat-card-header>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-card class="example-card">
+      
+      <mat-card-header class="perfil-header">
+        <div mat-card-avatar alt="Logan Parker" class="example-header-image"></div>
+        <mat-card-title class="a"> 
+          <span style="color:black;"> log.prkr </span> 
+
+          <button mat-button style="float: right;" class="mat-btn-4" [matMenuTriggerFor]="afterMenu"><i class="fas fa-ellipsis-v" matTooltip="Opções"></i></button>
+          <mat-menu #afterMenu="matMenu" xPosition="after" class="cog-menu">
+            <button mat-menu-item class="menu-item"><i id="icon1" class="fas fa-exclamation"></i> Denunciar </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item class="menu-item"><i id="icon2" class="icon-menu" class="fas fa-microphone-slash"></i> Silenciar </button>
+            <mat-divider></mat-divider>
+            <button mat-menu-item class="menu-item"><i id="icon3" class="icon-menu" class="fas fa-ban"></i> Deixar de Seguir </button>
+          </mat-menu>
+
+        </mat-card-title>
+        <mat-card-subtitle class="perfil-sub"> Arte Conceitual </mat-card-subtitle>
+      </mat-card-header>
+
+      <img mat-card-image class="card-img-1" src="https://desktopwalls.net/wp-content/uploads/2015/09/Earth%20From%20Space%204K%20Ultra%20HD%20Desktop%20Wallpaper.jpg" alt="Logan Parker">
+      
+      <div>
+      <mat-card-actions class="card-actions">
+        <button mat-button class="mat-btn-1" matTooltip="Curtir"><input type="checkbox" checked></button>
+        <button mat-button class="mat-btn-2" matTooltip="Comentar" (click)="openDialog()"><i class="fas fa-comment-dots"></i></button>
+        <button mat-button class="mat-btn-3" matTooltip="Compartilhar"><i class="fas fa-share-alt"></i></button>
+        <button mat-button class="mat-btn-5" matTooltip="Salvar"><i class="fas fa-gem"></i></button>
+      </mat-card-actions>
+      </div>
+    
+      <mat-divider></mat-divider>
+
+      <div>
+      <mat-card-content class="card-container">
+        <p class="b">
+          <span style="color:rgb(0, 119, 255)"> @log.prkr </span>Lorem ipsum dolor sit amet, vocibus expetenda maluisset mea no. 
+          Adhuc reformidans qui ne, at vide repudiandae nam, vel ne tollit 
+          adipisci convenire. Vidit graeci consequat an vis, te eam duis 
+          eius eloquentiam. Fabulas invidunt platonem mei ad, nam mundi utamur 
+          iracundia in, mei in legere prompta. Alia explicari ei vel, est eu 
+          delectus accusamus, eros tibique reprehendunt cu eum. Eu suas homero 
+          nostrud nec, vis erroribus argumentum ex.
+        </p>
+      </mat-card-content>
+      </div>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+</div>
+
